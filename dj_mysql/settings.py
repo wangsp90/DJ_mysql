@@ -54,7 +54,7 @@ ROOT_URLCONF = 'dj_mysql.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +75,14 @@ WSGI_APPLICATION = 'dj_mysql.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #有mysql/sqlite3/oracle/postgresql基本就这4种
+        'ENGINE': 'django.db.backends.mysql',
+        #要连接的数据库的名字
+        'NAME': 'news',
+        'USER': 'root',
+        'PASSWORD': '123456',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
