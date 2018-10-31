@@ -1,0 +1,31 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+/* 清除掉浏览器默认的样式，这里清除了外边距 */
+
+.nav {
+	background: #3a3a3a;
+	height: 65px;
+	overflow: hidden;
+
+}
+
+.nav li{
+	float: left;
+	list-style: none;
+	margin: 0 20px;
+	line-height: 65px;
+
+}
+
+.nav li a {
+	color: #fff;
+	text-decoration: none;
+
+}
+
+.nav li a:hover{
+	color: lightblue;
+
+} /*鼠标放上去之后的变化*/

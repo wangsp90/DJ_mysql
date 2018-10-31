@@ -13,5 +13,9 @@ from django.db import connection
 def index(request):
 #	context={"tpm":"This is DTL parameter test!","names":["wangsp","Jane"],"age":16}
 	cursor=connection.cursor()
-	cursor.execute("insert into book (ID,Name,author) value (null,'简爱','忘了')")
-	return render(request,'index.html')
+#	cursor.execute("insert into book (ID,NAME,PRICE) value (null,'金瓶梅',88)")
+	cursor.execute("select * from books")
+	rows = cursor.fetchall()
+	for row in rows:
+		print (row)
+	return HttpResponse("Fuck You!")

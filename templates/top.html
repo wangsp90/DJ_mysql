@@ -1,0 +1,20 @@
+<!Book Store>
+<html lan="en">
+<head>
+	<meda charset="UTF-8">
+	<title>页面顶部</title>
+	<link rel="stylesheet" type="text/css" href="{%static 'web/top.css'%}">
+</head>
+
+<body>
+<nav>
+	<ul class="nav">
+		<li><a href="/">首页</a></li>
+		<li><a href="addbook">录入图书</a></li>
+	</ul>
+</nav>
+
+{% block table %}{% endblock %}
+
+</body>
+</html>

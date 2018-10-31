@@ -1,12 +1,22 @@
+{% extends 'top.html'%}
 
-<!First Template>
-<html lan="en">
-<head>
-	<meda charset="UTF-8">
-	<title>Title</title>
-</head>
-
-<body>
-	我的第一个Django HTML模板
-</body>
-</html>
+{% block table %}
+	<table style="margin-left: 60px;" width="200" >
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>书名</th>
+				<th>价格</th>
+			</tr>
+		</thead>
+		<tbody >
+			{% for book in books %}
+				<tr>
+					<td align="center">{{ forloop.counter }}</td>
+					<td align="center">{{ book.0 }}</td>
+					<td align="center">{{ book.1 }}</td>
+				</tr>		
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

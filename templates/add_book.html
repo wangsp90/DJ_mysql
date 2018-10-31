@@ -1,0 +1,24 @@
+{% extends 'top.html'%}
+
+{% block table %}
+	<form action="" method="post">	<!--action留空表示表单提交到当前的URL中,采用post方式提交-->
+		<table  style="margin-left: 60px;">
+			<tbody>
+				<tr>
+					<td>书名</td>
+					<td><input type="text" name="bookname"></td>	<!--将输入传递给bookname参数，其他人通过bookname调用输入的内容-->
+				</tr>
+				<tr>
+					<td>价格</td>
+					<td><input type="text" name="bookprice"></td>	
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="录入"></td>		<!--按钮使用submit-->
+				</tr>
+			</tbody>
+		</table>
+		
+	</form>		
+
+{% endblock %}
