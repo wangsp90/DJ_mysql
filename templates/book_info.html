@@ -1,1 +1,10 @@
 {% extends 'top.html'%}
+
+{% block table %}
+	<p style="margin: 10 40;">书名：{{book.0}}</p>
+	<p style="margin: 10 40;">价格：{{book.1}}</p>
+	<form action="{% url 'delbook' %}" method="post">
+		<input type="hidden" name="name" value="{{book.0}}">
+		<input type="submit" value="删除图书" style="margin: 10 40;">
+	</form>
+{% endblock %}

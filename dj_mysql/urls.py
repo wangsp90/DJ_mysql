@@ -22,5 +22,7 @@ urlpatterns = [
 #    path('admin/', admin.site.urls),
     path('', views.index,name="index"),
     path('addbook/', views.add_book,name="addbook"),
-    path('bookinfo/', views.book_info,name="bookinfo"),
+    path('bookinfo/<int:id>/', views.book_info, name="bookinfo"),   #通过ID查找
+    path('bookinfo/<str:name>/', views.book_info, name="bookinfo"),   #通过NAME查找
+    path('delbook/', views.del_book, name="delbook"), 
 ]

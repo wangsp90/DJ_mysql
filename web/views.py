@@ -21,9 +21,24 @@ def add_book(request):									 #提交时，csrf认证防攻击防止了，需�
 		bookname=request.POST.get("bookname")
 		bookprice=request.POST.get("bookprice")
 		cursor=get_cursor()
-		cursor.execute("INSERT INTO books.books (NAME, PRICE) VALUES ('%s', '%s')" % (bookname,bookprice) )		#游标中传递参数的方式
+		cursor.execute("INSERT INTO books.books (NAME, PRICE,ID) VALUES ('%s', '%s',null)" % (bookname,bookprice) )		#游标中传递参数的方式
 		return redirect(reverse('index'))
 
-def book_info(request,book_id):
-	pass
+def book_info(request,name):
+	cursor=get_cursor()
+#	cursor.execute("select * from books.books where ID=%s" % id)
+	cursor.execute("select * from books.books where NAME='%s'" % name)	
+	book_info=cursor.fetchone()
+	context={
+		"book":book_info
+	}
+	return render(request,'book_info.html',context=context)
 
+def del_book(request):
+	if request.method=='POST':
+		name=request.POST.get("name")
+		cursor=get_cursor()
+		cursor.execute("delete from books where NAME='%s'" % name )		#游标中传递参数的方式
+		return redirect(reverse('index'))
+	else:
+		return render(request,'index')
